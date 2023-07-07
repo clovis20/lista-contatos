@@ -12,6 +12,7 @@ export interface ContactState {
 
 export const ADD_CONTACT = 'ADD_CONTACT'
 export const REMOVE_CONTACT = 'REMOVE_CONTACT'
+export const UPDATE_CONTACT = 'UPDATE_CONTACT'
 
 interface AddContactAction {
   type: typeof ADD_CONTACT
@@ -23,4 +24,15 @@ interface RemoveContactAction {
   payload: number
 }
 
-export type ContactActionTypes = AddContactAction | RemoveContactAction
+interface UpdateContactAction {
+  type: typeof UPDATE_CONTACT
+  payload: {
+    id: number
+    updatedContact: Contact
+  }
+}
+
+export type ContactActionTypes =
+  | AddContactAction
+  | RemoveContactAction
+  | UpdateContactAction
